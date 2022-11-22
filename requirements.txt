@@ -1,4 +1,8 @@
 python=3.10.7
+<<<<<<< HEAD
 Flask~=2.2.2
 pillow
 qrcode
+=======
+qrcode~=7.3.1
+>>>>>>> origin/main
