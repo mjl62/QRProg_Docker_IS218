@@ -1,17 +1,15 @@
 import qrcode
+from flask import flask
 
 
-def main():
-    generate_qrcode("https://www.njit.edu/")
+app = flask("/")
 
 
-def generate_qrcode(url):
+@app.route("/")
+def generate_qrcode():
     qr = qrcode.QRCode(version=1, box_size=20, border=2)
-    qr.add_data(url)
+    qr.add_data("https://www.njit.edu/")
     qr.make(fit=True)
     image_out = qr.make_image(fill='black', back_color='white')
     image_out.save("QRImage.png")
-
-
-if __name__ == '__main__':
-    main()
+    return image_out.get_image()
